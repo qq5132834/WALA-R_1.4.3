@@ -23,8 +23,8 @@
 		<module>com.ibm.wala.shrike</module>
 		<module>com.ibm.wala.util</module>
 
-		<!--    <module>com.ibm.wala.core.testdata</module>-->
-		<!--    <module>com.ibm.wala.core.tests</module>-->
+		    <module>com.ibm.wala.core.testdata</module>
+		    <module>com.ibm.wala.core.tests</module>
 
 		<module>com.ibm.wala.cast</module>
 		<!--    <module>com.ibm.wala.cast.test</module>-->
@@ -91,6 +91,16 @@
 
   <build>
     <plugins>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>8</source>
+				<target>8</target>
+			</configuration>
+		</plugin>
+
       <plugin>
 	<groupId>org.eclipse.tycho</groupId>
 	<artifactId>tycho-maven-plugin</artifactId>
