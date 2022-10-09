@@ -2,26 +2,11 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>WALA</artifactId>
         <groupId>com.ibm.wala</groupId>
         <version>1.4.3</version>
     </parent>
-    <artifactId>com.ibm.wala.core</artifactId>
-    <packaging>eclipse-plugin</packaging>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
+  <artifactId>com.ibm.wala.core</artifactId>
+  <packaging>eclipse-plugin</packaging>
 </project>
