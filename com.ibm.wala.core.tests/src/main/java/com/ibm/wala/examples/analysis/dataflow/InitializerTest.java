@@ -39,13 +39,13 @@ import com.ibm.wala.util.config.AnalysisScopeReader;
 import com.ibm.wala.util.intset.IntIterator;
 import com.ibm.wala.util.intset.IntSet;
 import com.ibm.wala.util.io.FileProvider;
+import org.junit.Test;
 
 public class InitializerTest {
 
-  /**
-   * @param args
-   */
-  public static void main(String[] args) {
+
+  @Test
+  public void main() {
     
     AnalysisScope scope = null;
     try {
