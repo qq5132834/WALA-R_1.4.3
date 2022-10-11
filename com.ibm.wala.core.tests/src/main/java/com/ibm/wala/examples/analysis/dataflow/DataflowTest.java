@@ -61,9 +61,9 @@ import com.ibm.wala.util.intset.IntSet;
  */
 public class DataflowTest extends WalaTestCase {
 
-  private static AnalysisScope scope;
+  private static AnalysisScope scope; //分析范围
 
-  private static IClassHierarchy cha;
+  private static IClassHierarchy cha; //类层次结构
 
   // more aggressive exclusions to avoid library blowup
   // in interprocedural tests
