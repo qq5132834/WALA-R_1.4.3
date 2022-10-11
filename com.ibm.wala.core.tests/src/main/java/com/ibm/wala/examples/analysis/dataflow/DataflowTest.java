@@ -58,6 +58,8 @@ import com.ibm.wala.util.intset.IntSet;
 
 /**
  * Tests of various flow analysis engines.
+ *
+ * 将class文件转为txt文件查看，javap -verbose StaticDataflow.class > StaticDataflow.txt
  */
 public class DataflowTest extends WalaTestCase {
 
@@ -110,10 +112,10 @@ public class DataflowTest extends WalaTestCase {
   public void testIntraproc1() {
     IAnalysisCacheView cache = new AnalysisCacheImpl();
     final MethodReference ref = MethodReference.findOrCreate(ClassLoaderReference.Application, "Ldataflow/StaticDataflow", "test1",
-        "()V000");
+        "()V");
     IMethod method = cha.resolveMethod(ref);
-    IR ir = cache.getIRFactory().makeIR(method, Everywhere.EVERYWHERE, SSAOptions.defaultOptions());
-    ExplodedControlFlowGraph ecfg = ExplodedControlFlowGraph.make(ir);
+    IR ir = cache.getIRFactory().makeIR(method, Everywhere.EVERYWHERE, SSAOptions.defaultOptions()); //SSA，Static Single-Assignment静态单赋值
+    ExplodedControlFlowGraph ecfg = ExplodedControlFlowGraph.make(ir); //分解的控制流图
     IntraprocReachingDefs reachingDefs = new IntraprocReachingDefs(ecfg, cha);
     BitVectorSolver<IExplodedBasicBlock> solver = reachingDefs.analyze();
     for (IExplodedBasicBlock ebb : ecfg) {
