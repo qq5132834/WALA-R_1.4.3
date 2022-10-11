@@ -80,8 +80,13 @@ public class DataflowTest extends WalaTestCase {
   		"org\\/apache\\/xerces\\/.*\n" + 
   		"java\\/security\\/.*\n" + 
   		"";
-  
-  
+
+
+  /***
+
+   "D:/development/github/WALA-R_1.4.3/WALA-R_1.4.3/com.ibm.wala.core.testdata/com.ibm.wala.core.testdata_1.0.0.jar"
+
+   */
   @BeforeClass
   public static void beforeClass() throws Exception {
 
@@ -106,14 +111,11 @@ public class DataflowTest extends WalaTestCase {
     cha = null;
   }
 
-  /***
-   "D:/development/github/WALA-R_1.4.3/WALA-R_1.4.3/com.ibm.wala.core.testdata/com.ibm.wala.core.testdata_1.0.0.jar"
-   */
   @Test
   public void testIntraproc1() {
     IAnalysisCacheView cache = new AnalysisCacheImpl();
     final MethodReference ref = MethodReference.findOrCreate(ClassLoaderReference.Application, "Ldataflow/StaticDataflow", "test1",
-        "()V");
+        "()V000");
     IMethod method = cha.resolveMethod(ref);
     IR ir = cache.getIRFactory().makeIR(method, Everywhere.EVERYWHERE, SSAOptions.defaultOptions());
     ExplodedControlFlowGraph ecfg = ExplodedControlFlowGraph.make(ir);
@@ -151,7 +153,7 @@ public class DataflowTest extends WalaTestCase {
   @Test
   public void testContextInsensitive() throws IllegalArgumentException, CallGraphBuilderCancelException {
     Iterable<Entrypoint> entrypoints = com.ibm.wala.ipa.callgraph.impl.Util.makeMainEntrypoints(scope, cha,
-        "Ldataflow/StaticDataflow");
+        "Ldataflow/StaticDataflow1");
     AnalysisOptions options = CallGraphTestUtil.makeAnalysisOptions(scope, entrypoints);
 
     CallGraphBuilder<InstanceKey> builder = Util.makeZeroOneCFABuilder(options, new AnalysisCacheImpl(), cha, scope);
