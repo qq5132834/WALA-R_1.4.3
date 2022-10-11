@@ -153,7 +153,7 @@ public class DataflowTest extends WalaTestCase {
   @Test
   public void testContextInsensitive() throws IllegalArgumentException, CallGraphBuilderCancelException {
     Iterable<Entrypoint> entrypoints = com.ibm.wala.ipa.callgraph.impl.Util.makeMainEntrypoints(scope, cha,
-        "Ldataflow/StaticDataflow1");
+        "Ldataflow/StaticDataflow");
     AnalysisOptions options = CallGraphTestUtil.makeAnalysisOptions(scope, entrypoints);
 
     CallGraphBuilder<InstanceKey> builder = Util.makeZeroOneCFABuilder(options, new AnalysisCacheImpl(), cha, scope);
