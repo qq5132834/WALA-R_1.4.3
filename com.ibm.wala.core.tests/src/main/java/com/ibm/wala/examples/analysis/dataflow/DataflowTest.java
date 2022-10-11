@@ -67,6 +67,7 @@ public class DataflowTest extends WalaTestCase {
 
   // more aggressive exclusions to avoid library blowup
   // in interprocedural tests
+  // 排除，不包括的项目
   private static final String EXCLUSIONS = "java\\/awt\\/.*\n" + 
   		"javax\\/swing\\/.*\n" + 
   		"sun\\/awt\\/.*\n" + 
@@ -81,12 +82,6 @@ public class DataflowTest extends WalaTestCase {
   		"java\\/security\\/.*\n" + 
   		"";
 
-
-  /***
-
-   "D:/development/github/WALA-R_1.4.3/WALA-R_1.4.3/com.ibm.wala.core.testdata/com.ibm.wala.core.testdata_1.0.0.jar"
-
-   */
   @BeforeClass
   public static void beforeClass() throws Exception {
 
