@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.ibm.wala.core.testdata
+Bundle-Name: %Bundle-Name
+Bundle-Version: 1.4.3
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Eclipse-BuddyPolicy: registered
+Bundle-Vendor: %Bundle-Vendor
+
