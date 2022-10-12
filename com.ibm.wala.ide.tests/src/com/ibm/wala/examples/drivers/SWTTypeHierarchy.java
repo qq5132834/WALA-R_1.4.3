@@ -16,6 +16,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.window.ApplicationWindow;
 
 import com.ibm.wala.classLoader.IClass;
+import com.ibm.wala.classLoader.IMethod;
 import com.ibm.wala.core.tests.callGraph.CallGraphTestUtil;
 import com.ibm.wala.ide.ui.SWTTreeViewer;
 import com.ibm.wala.ipa.callgraph.AnalysisScope;
@@ -50,24 +51,61 @@ public class SWTTypeHierarchy {
   public static void main(String[] args) {
     // check that the command-line is kosher
     // org.eclipse.e4.ui.workbench.IWorkbench
-    String[] args1 = {"-classpath", "D:\\development\\github\\WALA-R_1.4.3\\eclipse\\WALA-R_1.4.3\\com.ibm.wala.core.testdata\\JLex.jar"};
-    validateCommandLine(args1);
-    run(args1[CLASSPATH_INDEX]);
+    //String[] args1 = {"-classpath", "D:\\development\\github\\WALA-R_1.4.3\\eclipse\\WALA-R_1.4.3\\com.ibm.wala.core.testdata\\JLex.jar"};
+    validateCommandLine(args);
+    run(args[CLASSPATH_INDEX]);
+  }
+  
+  public static void showInfo(AnalysisScope scope){
+    try{
+      ClassHierarchy cha = ClassHierarchyFactory.make(scope);
+      for(IClass klass : cha) {
+        //https://blog.csdn.net/xiyi5609/article/details/78779574
+        System.out.println(klass.getName().toString());
+        if(scope.isApplicationLoader(klass.getClassLoader())) {
+          for (IMethod m : klass.getAllMethods()) {
+            System.out.println("  " + m.getName().toString());                
+          }
+        }
+      }
+      
+      Graph<IClass> g = typeHierarchy2Graph(cha);
+      
+      g = pruneForAppLoader(g);
+      //TODO 打印一些基本信息
+      System.out.println("nodes:" + g.getNumberOfNodes()); //节点数
+      Collection<IClass> myRoots = InferGraphRoots.inferRoots(g);
+      System.out.println(myRoots.size());
+      if(myRoots.size() > 0){
+        for (IClass iClass : myRoots) {
+          System.out.println(iClass.getSourceFileName());
+          System.out.println(iClass.getAllMethods().size());
+          System.out.println(iClass.getAllFields().size());
+        }
+      }
+      
+      
+    }catch(Exception e){
+      e.printStackTrace();
+    }
+    
   }
 
   public static ApplicationWindow run(String classpath) {
-
     try {
       AnalysisScope scope = AnalysisScopeReader.makeJavaBinaryAnalysisScope(classpath, (new FileProvider())
           .getFile(CallGraphTestUtil.REGRESSION_EXCLUSIONS));
-
-      // invoke WALA to build a class hierarchy
+      
+      showInfo(scope);
+      
       ClassHierarchy cha = ClassHierarchyFactory.make(scope);
-
+            
+      // invoke WALA to build a class hierarchy， 调用WALA来构建类层次结构
       Graph<IClass> g = typeHierarchy2Graph(cha);
+      
       g = pruneForAppLoader(g);
-
-      // create and run the viewer
+      
+      // create and run the viewer（将类的层级关系可视化展示，下面的代码执行报异常，不知怎么解决）
       final SWTTreeViewer v = new SWTTreeViewer();
       v.setGraphInput(g);
       Collection<IClass> roots = InferGraphRoots.inferRoots(g);
