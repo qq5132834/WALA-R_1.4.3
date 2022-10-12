@@ -74,6 +74,12 @@ public class PDFSDG {
    * @throws IOException 
    */
   public static void main(String[] args) throws WalaException, IllegalArgumentException, CancelException, IOException {
+    /***
+     * 
+     * SDG：系统依赖图
+     * 
+     * [-appJar, D:\development\java\eclipse-rcp-luna-R-win32-x86_64\workspace/com.ibm.wala.core.testdata/bin/com.ibm.wala.core.testdata_1.0.0.jar, -mainClass, Lslice/Slice4, -srcCaller, main, -srcCallee, foo, -dd, no_base_no_heap, -cd, none, -dir, forward]
+     */
     run(args);
   }
 
