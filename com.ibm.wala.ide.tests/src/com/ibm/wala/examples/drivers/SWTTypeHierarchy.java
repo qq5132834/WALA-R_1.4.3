@@ -44,11 +44,15 @@ public class SWTTypeHierarchy {
 
   /**
    * Usage: SWTTypeHierarchy -classpath [classpath]
+   * 参数内容：
+   * [-classpath, D:\development\github\WALA-R_1.4.3\eclipse\WALA-R_1.4.3\com.ibm.wala.core.testdata\JLex.jar]
    */
   public static void main(String[] args) {
     // check that the command-line is kosher
-    validateCommandLine(args);
-    run(args[CLASSPATH_INDEX]);
+    // org.eclipse.e4.ui.workbench.IWorkbench
+    String[] args1 = {"-classpath", "D:\\development\\github\\WALA-R_1.4.3\\eclipse\\WALA-R_1.4.3\\com.ibm.wala.core.testdata\\JLex.jar"};
+    validateCommandLine(args1);
+    run(args1[CLASSPATH_INDEX]);
   }
 
   public static ApplicationWindow run(String classpath) {
