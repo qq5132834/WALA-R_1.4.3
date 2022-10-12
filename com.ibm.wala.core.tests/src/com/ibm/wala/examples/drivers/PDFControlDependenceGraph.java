@@ -61,6 +61,10 @@ public class PDFControlDependenceGraph {
    */
   public static void main(String[] args) throws IOException {
 
+    /***
+     * 控制依赖图
+     * [-appJar, D:\development\java\eclipse-rcp-luna-R-win32-x86_64\workspace/JLex.jar, -sig, java.lang.StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer;]
+     */
     run(args);
   }
 
