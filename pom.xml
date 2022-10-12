@@ -35,7 +35,7 @@
 		<module>com.ibm.wala.ide.tests</module>
 		<!--    <module>com.ibm.wala.ide.jdt.test</module>-->
 
-		<!--    <module>com.ibm.wala.core.testdata</module>-->
+		<module>com.ibm.wala.core.testdata</module>
 		<module>com.ibm.wala.core.tests</module>
 
 
