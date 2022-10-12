@@ -87,6 +87,10 @@ public class PDFCallGraph {
    * @throws IllegalArgumentException
    */
   public static void main(String[] args) throws IllegalArgumentException, CancelException {
+    /***
+     * 调用关系图
+     * [-appJar, D:\development\java\eclipse-rcp-luna-R-win32-x86_64\workspace/JLex.jar]
+     */
     run(args);
   }
 
