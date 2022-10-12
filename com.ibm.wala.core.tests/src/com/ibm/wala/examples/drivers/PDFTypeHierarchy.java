@@ -64,6 +64,15 @@ public class PDFTypeHierarchy {
 
   }
 
+  /***
+   * 生产dot图，并生产pdf文件，向用户展示
+   * 
+   * 1、配置信息： wala.properties，中配置dot文件、pdf文件的输出路径
+   * 2、配置：wala.examples.properties，中配置dot.exe、与pdf viewer的exe路径
+   * 
+   * @param args
+   * @throws IOException
+   */
   public static void main(String[] args) throws IOException {
     run(args);
   }
