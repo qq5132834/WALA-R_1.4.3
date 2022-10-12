@@ -48,6 +48,9 @@ public class PDFWalaIR {
    * "java_cup.lexer.advance()V"
    */
   public static void main(String[] args) throws IOException {
+    /***
+     *  [-appJar, D:\development\java\eclipse-rcp-luna-R-win32-x86_64\workspace/JLex.jar, -sig, java.lang.StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer;]
+     */
     run(args);
   }
 
