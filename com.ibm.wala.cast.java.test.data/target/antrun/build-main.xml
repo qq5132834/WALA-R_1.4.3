@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <property name="compile_classpath" refid="maven.compile.classpath"/>
+  <ant antfile="D:\development\github\WALA-R_1.4.3\eclipse\WALA-R_1.4.3\com.ibm.wala.cast.java.test.data/build.xml" target="jar"/>
+</target>
+</project>

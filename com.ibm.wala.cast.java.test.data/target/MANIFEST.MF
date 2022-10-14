@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.ibm.wala.cast.java.test.data
+Bundle-Name: %Bundle-Name
+Bundle-Version: 1.4.3
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: %Bundle-Vendor
+
