@@ -1,0 +1,10 @@
+/target/
+/targets/
+/.idea/
+*/.settings/*
+*/.gitignore
+
+/.settings/
+*.class
+
+*/.project
