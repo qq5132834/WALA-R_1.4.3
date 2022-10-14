@@ -40,6 +40,7 @@
  */
 package com.ibm.wala.demandpa.driver;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -119,9 +120,10 @@ public class DemandCastChecker {
       e.printStackTrace();
       Assertions.UNREACHABLE();
     }
-
+    System.out.println("分析JLex.jar");
     runTestCase(TestConstants.JLEX_MAIN, TestConstants.JLEX, "JLex");
-    // runTestCase(TestConstants.HELLO_MAIN, TestConstants.HELLO, "Hello");
+    System.out.println("分析hello.java或者hello.class");
+    runTestCase(TestConstants.HELLO_MAIN, TestConstants.HELLO, "Hello");
 
   }
 
@@ -129,6 +131,7 @@ public class DemandCastChecker {
       CancelException, IOException {
     System.err.println("=====BENCHMARK " + benchName + "=====");
     System.err.println("analyzing " + benchName);
+    System.err.println(new File(scopeFile).getAbsolutePath());
     DemandRefinementPointsTo dmp = null;
     try {
       dmp = makeDemandPointerAnalysis(scopeFile, mainClass, benchName);
