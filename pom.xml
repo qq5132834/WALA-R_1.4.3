@@ -29,13 +29,13 @@
 		<module>com.ibm.wala.ide-feature</module>
 		<module>com.ibm.wala.ide.jdt</module>
 
-		<!--    <module>com.ibm.wala.cast.test</module>-->
-		<!--    <module>com.ibm.wala.cast.java.test</module>-->
-		<!--    <module>com.ibm.wala.cast.java.test.data</module>-->
+		<module>com.ibm.wala.cast.test</module>
+		<module>com.ibm.wala.cast.java.test</module>
+		<module>com.ibm.wala.cast.java.test.data</module> <!-- 数据模块已经全部提交 -->
 		<module>com.ibm.wala.ide.tests</module>
-		<!--    <module>com.ibm.wala.ide.jdt.test</module>-->
+		<module>com.ibm.wala.ide.jdt.test</module>
 
-		<module>com.ibm.wala.core.testdata</module>
+		<module>com.ibm.wala.core.testdata</module> <!-- 数据模块已经全部提交 -->
 		<module>com.ibm.wala.core.tests</module>
 
 
