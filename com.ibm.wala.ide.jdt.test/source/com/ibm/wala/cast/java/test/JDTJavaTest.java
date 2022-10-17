@@ -64,8 +64,9 @@ public abstract class JDTJavaTest extends IRTests {
  
     try {
       File tf = TemporaryFile.urlToFile("exclusions.txt", CallGraphTestUtil.class.getClassLoader().getResource(CallGraphTestUtil.REGRESSION_EXCLUSIONS));
+      System.out.println(tf.getAbsolutePath());
       engine.setExclusionsFile(tf.getAbsolutePath());
-      tf.deleteOnExit();
+      tf.deleteOnExit(); //文件如果存在，则删除
     } catch (IOException e) {
       Assert.assertFalse("Cannot find exclusions file: " + e.toString(), true);
     }
