@@ -80,6 +80,7 @@ public class JDTJavaSourceAnalysisEngine<I extends InstanceKey> extends EclipseP
   
   @Override
   protected ClassLoaderFactory makeClassLoaderFactory(SetOfClasses exclusions) {
+    System.out.println("JDTJavaSourceAnalysisEngine.java,makeClassLoaderFactory()");
 	  return new JDTClassLoaderFactory(exclusions, dump);	
   }
 
