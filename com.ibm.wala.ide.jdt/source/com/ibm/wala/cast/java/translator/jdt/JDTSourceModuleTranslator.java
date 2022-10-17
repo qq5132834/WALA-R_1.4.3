@@ -76,6 +76,10 @@ import com.ibm.wala.util.debug.Assertions;
  */
 // remove me comment: Jdt little-case = not OK, upper case = OK
 public class JDTSourceModuleTranslator implements SourceModuleTranslator {
+  
+  /**
+   * 将JDT的AST转成WALA IR
+   * */
   private final class JdtAstToIR extends ASTRequestor {
     private final Entry<IProject, Map<ICompilationUnit, EclipseSourceFileModule>> proj;
 
@@ -85,7 +89,7 @@ public class JDTSourceModuleTranslator implements SourceModuleTranslator {
 
     @Override
     public void acceptAST(ICompilationUnit source, CompilationUnit ast) {
-
+      System.out.println("JDTSourceModuleTranslator.java, acceptAST()");
       try {
         JDTJava2CAstTranslator<JdtPosition> jdt2cast = makeCAstTranslator(ast, proj.getValue().get(source).getIFile(), source.getUnderlyingResource().getLocation().toOSString());
         final Java2IRTranslator java2ir = makeIRTranslator();

@@ -57,6 +57,7 @@ public class JDTSourceLoaderImpl extends JavaSourceLoaderImpl {
 
   @Override
   protected SourceModuleTranslator getTranslator() {
+    System.out.println("JDTSourceLoaderImpl.java, getTranslator()");
     return new JDTSourceModuleTranslator(cha.getScope(), this, dump);
   }
 }
