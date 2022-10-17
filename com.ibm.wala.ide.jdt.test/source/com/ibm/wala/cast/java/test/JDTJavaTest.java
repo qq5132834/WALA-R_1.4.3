@@ -50,6 +50,7 @@ public abstract class JDTJavaTest extends IRTests {
   
   static <I extends InstanceKey> AbstractAnalysisEngine<I> makeAnalysisEngine(final String[] mainClassDescriptors, ZippedProjectData project) {
     AbstractAnalysisEngine<I> engine;
+    System.out.println("JDTJavaTest.class,makeAnalysisEngine()");
     engine = new JDTJavaSourceAnalysisEngine<I>(project.projectName) {
       {
         setDump(Boolean.parseBoolean(System.getProperty("wala.cast.dump", "false")));
