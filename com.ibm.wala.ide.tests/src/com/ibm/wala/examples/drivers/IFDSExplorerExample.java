@@ -54,6 +54,11 @@ public class IFDSExplorerExample {
    */
   public static void main(String[] args) throws IOException, IllegalArgumentException, CallGraphBuilderCancelException,
       WalaException {
+    /***
+     * 
+     * [-dotExe, /opt/local/bin/dot, -viewerExe, /Users/manu/scripts/open_pdf.scpt]
+     * 
+     */
     Properties p = CommandLine.parse(args);
     AnalysisScope scope = CallGraphTestUtil.makeJ2SEAnalysisScope(TestConstants.WALA_TESTDATA, "Java60RegressionExclusions.txt");
     IClassHierarchy cha = ClassHierarchyFactory.make(scope);
