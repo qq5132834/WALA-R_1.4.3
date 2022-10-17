@@ -20,6 +20,9 @@ public class JDTJava15IRTests extends JDTJavaTest {
     super(JDTJavaIRTests.PROJECT);
   }
 
+  /***
+   * Run As -> JUnit Plug-in Test 的方式运行调试
+   */
   @Test
   public void testAnonGeneNullarySimple() throws IllegalArgumentException, CancelException, IOException {
     runTest(singlePkgTestSrc("javaonepointfive"), rtJar, simplePkgTestEntryPoint("javaonepointfive"), emptyList, true);
