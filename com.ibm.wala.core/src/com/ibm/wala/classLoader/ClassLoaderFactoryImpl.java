@@ -56,6 +56,7 @@ public class ClassLoaderFactoryImpl implements ClassLoaderFactory {
   @Override
   public IClassLoader getLoader(ClassLoaderReference classLoaderReference, IClassHierarchy cha, AnalysisScope scope)
       throws IOException {
+	System.out.println("ClassLoaderFactoryImpl.java, getLoader()");
     if (classLoaderReference == null) {
       throw new IllegalArgumentException("null classLoaderReference");
     }
