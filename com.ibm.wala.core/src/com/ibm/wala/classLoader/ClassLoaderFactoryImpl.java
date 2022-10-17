@@ -88,6 +88,7 @@ public class ClassLoaderFactoryImpl implements ClassLoaderFactory {
    */
   protected IClassLoader makeNewClassLoader(ClassLoaderReference classLoaderReference, IClassHierarchy cha, IClassLoader parent,
       AnalysisScope scope) throws IOException {
+    System.out.println("ClassLoaderFactoryImpl.java,makeNewClassLoader()");
     String implClass = scope.getLoaderImpl(classLoaderReference);
     IClassLoader cl;
     if (implClass == null) {
