@@ -122,6 +122,7 @@ public class JDTSourceModuleTranslator implements SourceModuleTranslator {
   }
 
   public JDTSourceModuleTranslator(AnalysisScope scope, JDTSourceLoaderImpl sourceLoader, boolean dump) {
+    System.out.println("JDTSourceModuleTranslator.java, JDTSourceModuleTranslator()");
     computeClassPath(scope);
     this.sourceLoader = sourceLoader;
     this.dump = dump;
@@ -161,6 +162,7 @@ public class JDTSourceModuleTranslator implements SourceModuleTranslator {
 
   @Override
   public void loadAllSources(Set<ModuleEntry> modules) {
+    System.out.println("JDTSourceModuleTranslator.java,loadAllSources()");
     // TODO: we might need one AST (-> "Object" class) for all files.
     // TODO: group by project and send 'em in
 
@@ -175,7 +177,7 @@ public class JDTSourceModuleTranslator implements SourceModuleTranslator {
       }
       projectsFiles.get(proj).put(JavaCore.createCompilationUnitFrom(entry.getIFile()), entry);
     }
-
+    System.out.println("JDTSourceModuleTranslator.java,AST分析器");
     final ASTParser parser = ASTParser.newParser(AST.JLS8);
  
     for (final Map.Entry<IProject,Map<ICompilationUnit,EclipseSourceFileModule>> proj : projectsFiles.entrySet()) {
@@ -183,6 +185,7 @@ public class JDTSourceModuleTranslator implements SourceModuleTranslator {
       parser.setResolveBindings(true);
  
       Set<ICompilationUnit> units = proj.getValue().keySet();
+      System.out.println("JDTSourceModuleTranslator.java,AST生成");
       parser.createASTs(units.toArray(new ICompilationUnit[units.size()]), new String[0], new JdtAstToIR(proj), null);
 
     }
