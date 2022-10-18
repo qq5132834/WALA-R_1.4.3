@@ -498,7 +498,9 @@ public abstract class JavaSourceLoaderImpl extends ClassLoaderImpl {
 
   @Override
   protected void loadAllSources(Set<ModuleEntry> modules) {
-    getTranslator().loadAllSources(modules);
+    SourceModuleTranslator translator = getTranslator();
+    System.out.println("JavaSourceLoaderImpl.java,loadAllSources()");
+    translator.loadAllSources(modules);
   }
 
   protected abstract SourceModuleTranslator getTranslator();
