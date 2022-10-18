@@ -175,7 +175,18 @@ public class JDTSourceModuleTranslator implements SourceModuleTranslator {
       if (!projectsFiles.containsKey(proj)) {
         projectsFiles.put(proj, new HashMap<ICompilationUnit,EclipseSourceFileModule>());
       }
-      projectsFiles.get(proj).put(JavaCore.createCompilationUnitFrom(entry.getIFile()), entry);
+      IFile ifile = entry.getIFile();
+      System.out.println("JDTSourceModuleTranslator.java,分析的文件:" + ifile.getFullPath().toFile().getAbsolutePath());
+      ICompilationUnit iCompilationUnit = JavaCore.createCompilationUnitFrom(ifile);
+      try {
+        String content = iCompilationUnit.getSource();
+        content = content + "";
+        //System.out.print("文件内容:" + content);
+      } catch (Exception e) {
+        // TODO: handle exception
+      }
+      
+      projectsFiles.get(proj).put(iCompilationUnit, entry);
     }
     System.out.println("JDTSourceModuleTranslator.java,AST分析器");
     final ASTParser parser = ASTParser.newParser(AST.JLS8);
