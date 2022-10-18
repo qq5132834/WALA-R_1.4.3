@@ -350,7 +350,17 @@ public abstract class IRTests {
 
   public <I extends InstanceKey> Pair<CallGraph, PointerAnalysis<I>> runTest(Collection<String> sources, List<String> libs,
         String[] mainClassDescriptors, List<? extends IRAssertion> ca, boolean assertReachable) throws IllegalArgumentException, CancelException, IOException {
-      AbstractAnalysisEngine<I> engine = getAnalysisEngine(mainClassDescriptors, sources, libs);
+    for (String str : sources) {
+      System.out.println("sources:" + str);
+    }
+    for (String lib : libs) {
+      System.out.println("lib:" + lib);
+    }
+    for(String str : mainClassDescriptors){
+      System.out.println("str:" + str);
+    }
+    
+    AbstractAnalysisEngine<I> engine = getAnalysisEngine(mainClassDescriptors, sources, libs);
 
       CallGraph callGraph;
         callGraph = engine.buildDefaultCallGraph();

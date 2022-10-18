@@ -78,6 +78,9 @@ public class JDTJavaSourceAnalysisEngine<I extends InstanceKey> extends EclipseP
     this.dump = dump;
   }
   
+  /***
+   * 这里重写了抽象类中的 makeClassLoaderFactory 方法
+   */
   @Override
   protected ClassLoaderFactory makeClassLoaderFactory(SetOfClasses exclusions) {
     System.out.println("JDTJavaSourceAnalysisEngine.java,makeClassLoaderFactory()");

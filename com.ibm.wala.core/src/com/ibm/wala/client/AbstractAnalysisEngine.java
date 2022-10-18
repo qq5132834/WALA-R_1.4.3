@@ -180,9 +180,11 @@ public abstract class AbstractAnalysisEngine<I extends InstanceKey> implements A
    */
   public IClassHierarchy buildClassHierarchy() {
     IClassHierarchy cha = null;
-    ClassLoaderFactory factory = makeClassLoaderFactory(getScope().getExclusions());
+    AnalysisScope scope = getScope();
+    SetOfClasses exclusions = scope.getExclusions();
+    ClassLoaderFactory factory = makeClassLoaderFactory(exclusions);
     try {
-      cha = ClassHierarchyFactory.make(getScope(), factory);
+      cha = ClassHierarchyFactory.make(scope, factory);
     } catch (ClassHierarchyException e) {
       System.err.println("Class Hierarchy construction failed");
       System.err.println(e.toString());
@@ -308,6 +310,7 @@ public abstract class AbstractAnalysisEngine<I extends InstanceKey> implements A
    * @throws IOException
    */
   public CallGraphBuilder defaultCallGraphBuilder() throws IllegalArgumentException, CancelException, IOException {
+    System.out.println("AbstractAnalysisEngine.java,defaultCallGraphBuilder()");
     buildAnalysisScope();
     IClassHierarchy cha = buildClassHierarchy();
     setClassHierarchy(cha);

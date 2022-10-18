@@ -179,6 +179,7 @@ public class ClassHierarchy implements IClassHierarchy {
       IProgressMonitor progressMonitor, Map<TypeReference, Node> map) throws ClassHierarchyException, IllegalArgumentException {
     // now is a good time to clear the warnings globally.
     // TODO: think of a better way to guard against warning leaks.
+    System.out.println("ClassHierarchy.java,ClassHierarchy()");
     Warnings.clear();
 
     this.map = map;
@@ -228,6 +229,7 @@ public class ClassHierarchy implements IClassHierarchy {
         }
 
         if (langNames.contains(ref.getLanguage())) {
+          System.out.println("ClassHierarchy.java,getLoader()");
           IClassLoader icl = factory.getLoader(ref, this, scope);
           loaders[idx++] = icl;
 
